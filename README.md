@@ -34,7 +34,7 @@ SELECT COUNT(*) AS total_records FROM ecommerce_olist.olist_order_payments;
 SELECT COUNT(*) AS total_records FROM ecommerce_olist.olist_products;
 SELECT COUNT(*) AS total_records FR0O0\?/ OM ecommerce_olist.olist_sellers;
 ```
-#### Results
+- Results
 ```
 Total  records from Order items = 112650
 
@@ -51,5 +51,29 @@ Total records from Sellers =  3095
 Total records from Reviews =  99441
 ```
 
-
+ ## Step 2: Null & Missing Value Check (Table by Table)
+- Customers Table:
+```
+SELECT 
+  COUNTIF(customer_id IS NULL) AS missing_customer_id,
+  COUNTIF(customer_unique_id IS NULL) AS missing_customer_unique_id,
+  COUNTIF(customer_city IS NULL) AS missing_city,
+  COUNTIF(customer_state IS NULL) AS missing_state
+FROM ecommerce_olist.olist_customers;
+```
+- Orders Table
+```
+SELECT 
+  COUNTIF(customer_id IS NULL) AS missing_customer_id,
+  COUNTIF(order_purchase_timestamp IS NULL) AS missing_order_date,
+  COUNTIF(order_delivered_customer_date IS NULL) AS missing_delivery_date
+FROM ecommerce_olist.olist_orders;
+```
+- Payments Table 
+```
+SELECT 
+  COUNTIF(order_id IS NULL) AS missing_order_id,
+  COUNTIF(payment_value IS NULL) AS missing_payment
+FROM ecommerce_olist.olist_order_payments;
+```
 
