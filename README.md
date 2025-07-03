@@ -51,7 +51,7 @@ Total records from Sellers =  3095
 Total records from Reviews =  99441
 ```
 
- ## Step 2: Null & Missing Value Check (Table by Table)
+ #### Step 2: Null & Missing Value Check (Table by Table)
 - Customers Table:
 ```
 SELECT 
@@ -63,7 +63,7 @@ FROM ecommerce_olist.olist_customers;
 ```
 - I did this step for all tables, no issue was found
 
-## Step 4: Detect Duplicates
+#### Step 3: Detect Duplicates
 - Check for duplicate order_id:
 ```
 SELECT 
@@ -75,7 +75,7 @@ HAVING COUNT(*) > 1;
 ```
 - I did this step for all tables, no issue was found
 
-## Step 5: Filter Out Canceled / Unavailable Orders
+#### Step 4: Filter Out Canceled / Unavailable Orders
 
 - Removed 'canceled' and 'unavailable' orders
 ```
@@ -85,5 +85,15 @@ FROM ecommerce_olist.olist_orders
 WHERE order_status NOT IN ('canceled', 'unavailable')
 AND order_purchase_timestamp IS NOT NULL;
 ```
+#### Step 5: Enforce Join Integrity 
+- This is to only keep order items, payments, reviews that are linked to cleaned orders.
+- This was enforced in clean order items and clean payments
 
+````
+CREATE OR REPLACE VIEW ecommerce_olist.vw_clean_order_items AS
+SELECT oi.*
+FROM ecommerce_olist.olist_order_items AS oi
+INNER JOIN ecommerce_olist.vw_clean_orders AS o 
+ON oi.order_id = o.order_id;
+```
 
