@@ -16,7 +16,7 @@ An e-commerce company wants to improve revenue, understand customer behavior, op
   - Geolocation
 
 ## 🔗 ERD Diagram
-![ERD](erd.png)
+![ERD](./images/erd.png)
 
 ## 🛠️ Tools Used
 - Google BigQuery
