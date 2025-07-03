@@ -61,19 +61,29 @@ SELECT
   COUNTIF(customer_state IS NULL) AS missing_state
 FROM ecommerce_olist.olist_customers;
 ```
-- Orders Table
+- I did this step for all tables, no issue was found
+
+## Step 4: Detect Duplicates
+- Check for duplicate order_id:
 ```
 SELECT 
-  COUNTIF(customer_id IS NULL) AS missing_customer_id,
-  COUNTIF(order_purchase_timestamp IS NULL) AS missing_order_date,
-  COUNTIF(order_delivered_customer_date IS NULL) AS missing_delivery_date
-FROM ecommerce_olist.olist_orders;
+  order_id, 
+  COUNT(*) AS count
+FROM ecommerce_olist.olist_orders
+GROUP BY order_id
+HAVING COUNT(*) > 1;
 ```
-- Payments Table 
+- I did this step for all tables, no issue was found
+
+## Step 5: Filter Out Canceled / Unavailable Orders
+
+- Removed 'canceled' and 'unavailable' orders
 ```
-SELECT 
-  COUNTIF(order_id IS NULL) AS missing_order_id,
-  COUNTIF(payment_value IS NULL) AS missing_payment
-FROM ecommerce_olist.olist_order_payments;
+CREATE OR REPLACE VIEW ecommerce_olist.vw_clean_orders AS
+SELECT * 
+FROM ecommerce_olist.olist_orders
+WHERE order_status NOT IN ('canceled', 'unavailable')
+AND order_purchase_timestamp IS NOT NULL;
 ```
+
 
