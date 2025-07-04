@@ -89,11 +89,24 @@ AND order_purchase_timestamp IS NOT NULL;
 - This is to only keep order items, payments, reviews that are linked to cleaned orders.
 - This was enforced in clean order items and clean payments
 
-````
+<!-- ````
 CREATE OR REPLACE VIEW ecommerce_olist.vw_clean_order_items AS
 SELECT oi.*
 FROM ecommerce_olist.olist_order_items AS oi
 INNER JOIN ecommerce_olist.vw_clean_orders AS o 
 ON oi.order_id = o.order_id;
-```
+``` -->
 
+
+##  🔁 Funnel Analysis
+- Funnel Stages: Purchase → Approval → Shipping → Delivery
+- Drop-off observed at [Stage]
+- Avg Time to Approve: X days
+- Avg Time to Ship: Y days
+- Avg Time to Deliver: Z days
+
+## 🧪 A/B Test Insights
+Note: Orders between two payment types are our "test groups."
+- Payment types with **Credit Card** = faster conversion 
+- Higher value orders by group
+- Average order value by group
