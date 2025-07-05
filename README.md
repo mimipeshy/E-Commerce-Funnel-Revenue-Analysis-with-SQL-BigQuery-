@@ -99,8 +99,8 @@ ON oi.order_id = o.order_id;
 
 
 ##  🔁 Funnel Analysis
-- Funnel Stages: Purchase → Approval → Shipping → Delivery
-- Drop-off observed at [Stage]
+Funnel Stages: Purchase → Approval → Shipping → Delivery
+- Drop-off observed at **approval and shipping at 0.5%**
 - Avg Time to Approve: X days
 - Avg Time to Ship: Y days
 - Avg Time to Deliver: Z days
