@@ -113,5 +113,6 @@ Note: Orders between two payment types are our "test groups."
 - **Credit Card** has higher conversion rate
 - **Credit Card** has higher average order value
 - **Credit Card** has higher revenue
-
+- Significant variablity observed in **boleto group**
+ 
 

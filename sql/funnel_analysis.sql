@@ -11,3 +11,4 @@ SELECT
   MIN(order_purchase_timestamp) AS earliest_order, 
   MAX(order_purchase_timestamp) AS latest_order 
 FROM ecommerce_olist.olist_orders;
+
