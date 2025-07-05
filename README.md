@@ -110,6 +110,8 @@ improve customer satisfaction and reduce the average time to deliver.
 
 ## 🧪 A/B Test Insights
 Note: Orders between two payment types are our "test groups."
-- Payment types with **Credit Card** = faster conversion 
-- Higher value orders by group
-- Average order value by group
+- **Credit Card** has higher conversion rate
+- **Credit Card** has higher average order value
+- **Credit Card** has higher revenue
+
+
