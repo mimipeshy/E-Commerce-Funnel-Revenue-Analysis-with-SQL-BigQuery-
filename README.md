@@ -101,9 +101,12 @@ ON oi.order_id = o.order_id;
 ##  🔁 Funnel Analysis
 Funnel Stages: Purchase → Approval → Shipping → Delivery
 - Drop-off observed at **approval and shipping at 0.5%**
-- Avg Time to Approve: X days
-- Avg Time to Ship: Y days
-- Avg Time to Deliver: Z days
+-  Avg Time to Approve: 0.26 days → Excellent
+- Avg Time to Ship: 2.31 days → Moderate
+- Avg Time to Deliver: 8.8 days → Bottleneck
+- Focus area: Last-mile optimization to reduce delivery delays
+- **Recommendation**: Implement a more efficient delivery system, such as same-day or next-day delivery, to
+improve customer satisfaction and reduce the average time to deliver.
 
 ## 🧪 A/B Test Insights
 Note: Orders between two payment types are our "test groups."
